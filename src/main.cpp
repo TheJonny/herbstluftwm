@@ -706,11 +706,11 @@ void execute_autostart_file() {
 
 static void parse_arguments(int argc, char** argv) {
     static struct option long_options[] = {
-        {"autostart",   1, 0, 'c'},
-        {"version",     0, 0, 'v'},
-        {"locked",      0, 0, 'l'},
-        {"verbose",     0, &g_verbose, 1},
-	{"existing-unmanaged", 0, &g_existing_windows_unmanaged, 1},
+        {"autostart",          1, 0, 'c'},
+        {"version",            0, 0, 'v'},
+        {"locked",             0, 0, 'l'},
+        {"verbose",            0, &g_verbose, 1},
+        {"existing-unmanaged", 0, &g_existing_windows_unmanaged, 1},
         {0, 0, 0, 0}
     };
     // parse options
