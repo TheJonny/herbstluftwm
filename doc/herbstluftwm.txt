@@ -31,6 +31,9 @@ of available <<COMMANDS,*COMMANDS*>> is listed below.
     *--verbose*::
         print verbose information to stderr. This can be switched at run-time by
         the 'verbose' setting.
+    *--existing-unmanaged*::
+        do not manage windows create before the start of herbstluftwm. This can
+        used to ignore panels started by a desktop environment.
 
 This manual documents the scripting and configuration interface. For a more
 verbose introduction see
