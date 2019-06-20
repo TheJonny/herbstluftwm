@@ -57,6 +57,7 @@ static int*     g_focus_follows_mouse = NULL;
 static bool     g_exec_before_quit = false;
 static char**   g_exec_args = NULL;
 static int*     g_raise_on_click = NULL;
+static int      g_existing_windows_unmanaged = 0;
 
 typedef void (*HandlerTable[LASTEvent]) (XEvent*);
 
@@ -709,6 +710,7 @@ static void parse_arguments(int argc, char** argv) {
         {"version",     0, 0, 'v'},
         {"locked",      0, 0, 'l'},
         {"verbose",     0, &g_verbose, 1},
+	{"existing-unmanaged", 0, &g_existing_windows_unmanaged, 1},
         {0, 0, 0, 0}
     };
     // parse options
@@ -1013,7 +1015,7 @@ int main(int argc, char* argv[]) {
 
     // setup
     ensure_monitors_are_available();
-    scan();
+    if(!g_existing_windows_unmanaged) scan();
     tag_force_update_flags();
     all_monitors_apply_layout();
     ewmh_update_all();
